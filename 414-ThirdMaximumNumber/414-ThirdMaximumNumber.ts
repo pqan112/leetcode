@@ -2,9 +2,9 @@ function thirdMax(nums: number[]): number {
     let third = null, second = null, first = null;
 
     for (const num of nums) {
-        if (num === third || num === second || num === first) {
-            continue;
-        } else if (first === null || num > first) {
+        if (num === first || num === second || num === third) continue;
+
+        if (first === null || num > first) {
             third = second;
             second = first;
             first = num;
