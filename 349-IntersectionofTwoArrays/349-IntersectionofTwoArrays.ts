@@ -1,11 +1,13 @@
 function intersection(nums1: number[], nums2: number[]): number[] {
-    let result = [];
+    const set1: Set<number> = new Set(nums1);
 
-    for (let i = 0; i < nums1.length; i++) {
-        if (nums2.includes(nums1[i])) {
-            result.push(nums1[i]);
+    const resultSet: Set<number> = new Set();
+
+    for(const num of nums2) {
+        if(set1.has(num)) {
+            resultSet.add(num)
         }
     }
 
-    return [...new Set(result)];
+    return Array.from(resultSet);
 };
