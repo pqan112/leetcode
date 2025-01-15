@@ -11,23 +11,11 @@
  */
 
 function middleNode(head: ListNode | null): ListNode | null {
-    const linkedListLength = getLengthOfLinkedList(head);
-    const middleNode = Math.floor(linkedListLength/2);
-    for(let i = 0; i<= middleNode; i++) {
-        if(i === middleNode) {
-            console.log('head', head);
-            console.log('head.next', head.next)
-            return head;
-        }
-        head = head.next;
-    }
-};
+    let fast: ListNode = head, low: ListNode = head;
 
-function getLengthOfLinkedList(head: ListNode | null): number {
-    let count = 0;
-    while(head !== null) {
-        count++;
-        head = head.next;
+    while(fast !== null && fast.next !== null) {
+        low = low.next;
+        fast = fast.next.next;
     }
-    return count;
-}
+    return low;
+};
