@@ -17,7 +17,10 @@ function createCounter(init: number): Counter {
             num--
             return num
         },
-        reset: () => { return num = init }
+        reset: () => { 
+            num = init;
+            return num
+        }
     }
 };
 
